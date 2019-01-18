@@ -1,0 +1,7 @@
+{
+  "name": "ionFire",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
