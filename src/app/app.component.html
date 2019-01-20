@@ -1,24 +1,24 @@
 <ion-app>
   <!-- side menu is defined here with a reference of sidemenu -->
-    <ion-menu menuId="menu-content" #sidemenu>
-      <ion-header side="start" type="push">
-        <ion-toolbar color="dark">
-          <ion-title>Menu</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <!-- menu with two examples of how to close menu -->
-      <ion-content id="menu-content">
-        <ion-list>
-          <!-- programmatic close -->
-          <ion-item routerLink="/" click="closeMenu()">
-            <ion-label>Home</ion-label>
-          </ion-item>
-          <!-- dom method closing -->
-          <ion-item routerLink="/todo" (click)="sidemenu.close()">
-            <ion-label>Todo List</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-    <ion-router-outlet main ></ion-router-outlet>
+  <ion-menu menuId="menu-content" #sidemenu>
+    <ion-header side="start" type="push">
+      <ion-toolbar color="dark">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <!-- menu with two examples of how to close menu -->
+    <ion-content id="menu-content">
+      <ion-list>
+        <!-- programmatic close -->
+        <ion-item routerLink="/" click="closeMenu()">
+          <ion-label>Home</ion-label>
+        </ion-item>
+        <!-- dom method closing -->
+        <ion-item routerLink="/todo" (click)="sidemenu.close()">
+          <ion-label>Todo List</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
 </ion-app>
