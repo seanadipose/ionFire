@@ -1,3 +1,10 @@
-<p>
-  login works!
-</p>
+<ng-container *ngIf="auth.user$ | async as user; else login">
+  <app-profile [user]="user"></app-profile>
+  <ion-button color="light" (click)="auth.signOut()">Logout</ion-button>
+</ng-container>
+<ng-template #login>
+  <ion-button color="medium" (click)="auth.anonymousLogin()">
+    <ion-icon slot="start" name="glasses"></ion-icon>
+    Login Anonymously
+  </ion-button>
+</ng-template>

@@ -17,6 +17,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
 import { IonicStorageModule } from '@ionic/storage';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,7 @@ import { IonicStorageModule } from '@ionic/storage';
     AngularFireAuthModule,
     AngularFireMessagingModule,
     IonicStorageModule.forRoot(),
+    SharedModule,
 
   ],
 providers: [

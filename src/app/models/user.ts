@@ -8,6 +8,6 @@ export class User {
   }
 
   constructor(uid, email, displayName, photoUrl, isAnonymous) {
-    const _user = { uid, email, displayName, photoUrl, isAnonymous };
+    this._user = { uid, email, displayName, photoUrl, isAnonymous };
   }
 }

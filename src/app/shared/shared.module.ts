@@ -10,6 +10,9 @@ import { IonicModule } from '@ionic/angular';
     CommonModule,
     IonicModule,
   ],
-  exports: [LoginComponent]
+  exports: [
+    ProfileComponent,
+    LoginComponent
+  ]
 })
 export class SharedModule { }
