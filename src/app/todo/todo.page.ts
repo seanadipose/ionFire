@@ -67,4 +67,13 @@ export class TodoPage implements OnInit {
     this.filter.next(val);
   }
 
+  // show modal and present it to page based on click.
+  async presentTodoForm(todo?: any) {
+    const modal = await this.modal.create({
+      component: TodoFormComponent,
+      componentProps: { todo }
+    });
+    return await modal.present();
+  }
+
 }

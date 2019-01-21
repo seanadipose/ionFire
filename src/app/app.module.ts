@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { environment } from './../environments/environment';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // ionic modules
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -27,6 +28,8 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
