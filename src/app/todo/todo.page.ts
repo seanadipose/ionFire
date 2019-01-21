@@ -43,4 +43,17 @@ export class TodoPage implements OnInit {
     return todo.id;
   }
 
+  deleteTodo(todo) {
+    this.db.delete(`todos/${todo.id}`);
+  }
+
+  toggleStatus(todo) {
+    const status = todo.status === 'complete' ? 'pending' : 'complete';
+    this.db.updateAt(`todos/${todo.id}`, { status });
+  }
+
+  updateFilter(evt: any) {
+    console.log(evt);
+  }
+
 }
