@@ -37,6 +37,17 @@ export class TodoPage implements OnInit {
       ),
       shareReplay(1)
     );
+
+    this.filtered = this.filter.pipe(
+      switchMap(filter => {
+        return this.todos.pipe(
+          map(arr =>
+            (arr as any[]).filter(
+              obj => (status ? obj.status : true)
+            ))
+        );
+      })
+    );
   }
 
   trackById(idx, todo) {
@@ -52,8 +63,8 @@ export class TodoPage implements OnInit {
     this.db.updateAt(`todos/${todo.id}`, { status });
   }
 
-  updateFilter(evt: any) {
-    console.log(evt);
+  updateFilter(val) {
+    this.filter.next(val);
   }
 
 }
