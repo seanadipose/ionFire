@@ -18,17 +18,18 @@ export class AuthService {
   user$: Observable<any>;
 
   private updateUserData(user: any) {
-    const { uid, email, displayName, photoUrl, isAnonymous } = user;
+    const { uid, email, displayName, photoURL, isAnonymous } = user;
     const path = `users/${uid}`;
-    const data = new User(uid, email, displayName, photoUrl, isAnonymous);
+    const data = new User(uid, email, displayName, photoURL, isAnonymous);
+    const { ...profile } = data.user;
     this.user$ = of(data.user);
-    // return this.db.updateAt(path, data);
+    return this.db.updateAt(path, profile);
   }
 
   private userDeconstruct(creds: firebase.auth.UserCredential): IUser {
     const { user: { uid, photoURL, isAnonymous, email, displayName }} = creds;
     const user = new User(uid, email, displayName, photoURL, isAnonymous);
-    return user.user;
+    return user['user'];
 
   }
 
@@ -54,9 +55,9 @@ export class AuthService {
     /* see if user exists by piping to a switch map that returns
     the user profile or returns a null observable if it's not created
     that */
-    // this.user$ = this.afAuth.authState.pipe(
-    //   switchMap(user => (user ? this.db.doc$(`users/${user.uid}`) : of(null)))
-    // );
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap(user => (user ? this.db.doc$(`users/${user.uid}`) : of(null)))
+    );
 
     this.handleRedirect();
   }

@@ -12,7 +12,6 @@ export class ProfileComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.user);
   }
 
 }
