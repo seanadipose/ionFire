@@ -39,7 +39,7 @@ export class TodoPage implements OnInit {
     );
 
     this.filtered = this.filter.pipe(
-      switchMap(filter => {
+      switchMap(status => {
         return this.todos.pipe(
           map(arr =>
             (arr as any[]).filter(

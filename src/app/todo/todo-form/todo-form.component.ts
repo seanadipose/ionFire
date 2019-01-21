@@ -43,17 +43,19 @@ export class TodoFormComponent implements OnInit {
   }
 
   async createTodo() {
-    const uid = this.auth.uid();
+    const uid = await this.auth.uid();
+    console.log(uid);
     const id = this.todo ? this.todo.id : '';
-
+    console.log(this.todo);
     const data = {
       uid,
       createdAt: Date.now(),
       ...this.todo,
       ...this.todoForm.value,
     };
-
-    this.db.updateAt(`todos${id}`, data);
+    console.log(data);
+    this.db.updateAt(`todos/${id}`, data);
+    this.modal.dismiss();
   }
 
 }

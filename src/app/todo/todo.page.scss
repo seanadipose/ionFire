@@ -3,6 +3,13 @@
   color: var(--ion-color-medium);
 }
 
-ion-button {
-  margin-left: 5px;
+// ion-button {
+//   margin-left: 5px;
+// }
+ion-checkbox{
+  button {
+    left: initial;
+    right: 0;
+    width: 15%;
+  }
 }

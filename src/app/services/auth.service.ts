@@ -29,11 +29,11 @@ export class AuthService {
   private userDeconstruct(creds: firebase.auth.UserCredential): IUser {
     const { user: { uid, photoURL, isAnonymous, email, displayName }} = creds;
     const user = new User(uid, email, displayName, photoURL, isAnonymous);
-    return user['user'];
+    return user.user;
 
   }
 
-  uid() {
+  uid(): Promise<any> {
     return this.user$
       .pipe(
         take(1),
